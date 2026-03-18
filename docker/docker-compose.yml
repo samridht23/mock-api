@@ -24,6 +24,17 @@ services:
       - ../.env
     restart: always
 
+  nginx:
+    image: nginx:alpine
+    container_name: mock-nginx
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: always
+
 volumes:
   postgres_data:
 
