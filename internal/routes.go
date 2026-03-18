@@ -7,7 +7,6 @@ import (
 	"github.com/samridht23/mock-api/internal/core"
 	"github.com/samridht23/mock-api/internal/handler"
 	"github.com/samridht23/mock-api/internal/middleware"
-	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 func InitRoutes(r chi.Router, conn *pgxpool.Pool, auth *core.AuthService, googleHTTP *core.GoogleHTTPService) {
@@ -19,9 +18,6 @@ func InitRoutes(r chi.Router, conn *pgxpool.Pool, auth *core.AuthService, google
 		AllowCredentials: true,
 		MaxAge:           300,
 	}))
-
-	/*  -------------- SWAGGER --------------- */
-	r.Get("/swagger/*", httpSwagger.WrapHandler)
 
 	r.Group(func(r chi.Router) {
 		r.Get("/auth/google", handler.GoogleLogin(auth))
@@ -60,7 +56,7 @@ func InitRoutes(r chi.Router, conn *pgxpool.Pool, auth *core.AuthService, google
 
 				// delete
 				r.Delete("/", handler.DeleteTest(conn))
-				
+
 			})
 
 			// list public tests

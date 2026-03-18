@@ -18,7 +18,6 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
-	_ "github.com/samridht23/mock-api/docs"
 	"github.com/samridht23/mock-api/internal"
 
 	"github.com/samridht23/mock-api/internal/core"
