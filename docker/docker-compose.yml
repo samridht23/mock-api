@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: mock-db
+    restart: always
+    env_file:
+      - ../.env
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../internal/database/migrations:/docker-entrypoint-initdb.d
+
+  api:
+    image: mock-api
+    container_name: mock-api
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    env_file:
+      - ../.env
+    restart: always
+
+volumes:
+  postgres_data:
+

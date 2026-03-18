@@ -1,0 +1,46 @@
+# Binaries for programs and plugins
+*.exe
+*.zed
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, consumed by `go tool cover -html`
+*.out
+*.prof
+
+# Dependency directories (remove the /vendor/ line if you want to check it in)
+vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+# Environment variables (Crucial for APIs)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+# Build directory (if you use a custom build folder like /bin or /out)
+bin/
+out/
+dist/
